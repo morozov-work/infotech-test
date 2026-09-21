@@ -41,7 +41,10 @@
   },
   "author": {
     "books": "Books by this author",
-    "empty": "This author is not in the catalog"
+    "empty": "This author is not in the catalog",
+    "subscribe": "Subscribe",
+    "unsubscribe": "Unsubscribe",
+    "subscribed": "You are subscribed to this author"
   },
   "report": {
     "label": "Top 10 Authors of",
@@ -59,5 +62,20 @@
     "title": "404 — Not found",
     "description": "This page does not exist.",
     "toBooks": "Go to book catalog"
+  },
+  "actions": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirmDelete": "Delete this record? This cannot be undone.",
+    "error": "Unable to complete the action. Please try again."
+  },
+  "form": {
+    "title": "Title",
+    "cover": "Cover",
+    "authorName": "Author name",
+    "required": "Complete the required fields. Select authors and a cover for a new book."
   }
 }
