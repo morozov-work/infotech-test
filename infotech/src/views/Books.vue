@@ -10,7 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount } from 'vue';
+import { computed, onBeforeUnmount, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useBooksStore, useUiStore } from '@/stores';
 import NoData from '@/components/NoData.vue';
@@ -21,6 +22,11 @@ const { getBooks, clearBooks } = useBooksStore();
 const { loading } = storeToRefs(useUiStore());
 const items = computed(() => books.value?.items ?? []);
 
-getBooks();
+const route = useRoute();
+watch(
+  () => route.query.page,
+  (value) => getBooks({ page: Math.max(1, Number(value) || 1) }),
+  { immediate: true },
+);
 onBeforeUnmount(clearBooks);
 </script>

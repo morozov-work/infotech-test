@@ -16,10 +16,10 @@
       <v-main>
         <v-container>
           <LoadingOverlay v-model="loading" />
-          <RouterView />
+          <RouterView :key="$route.path" />
         </v-container>
       </v-main>
-      <v-footer app class="justify-center flex-grow-0 py-4" border> </v-footer>
+      <AppFooter />
     </v-app>
   </v-responsive>
 </template>
@@ -32,6 +32,7 @@ import ThemeSelect from '@/components/ThemeSelect.vue';
 import LoginBtn from '@/components/LoginBtn.vue';
 import LoadingOverlay from '@components/LoadingOverlay.vue';
 import { useAuthStore, useUiStore } from '@/stores';
+import AppFooter from '@/components/AppFooter.vue';
 
 const { theme, loading } = storeToRefs(useUiStore());
 const { restoreToken } = useAuthStore();

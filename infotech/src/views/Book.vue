@@ -13,7 +13,7 @@
       </v-col>
     </v-row>
   </section>
-  <NoData v-else-if="Boolean(book) && !loading" :message="$t('book.empty')" />
+  <NoData v-else-if="!loading" :message="$t('book.empty')" />
 </template>
 
 <script setup lang="ts">
