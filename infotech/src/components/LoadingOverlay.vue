@@ -1,6 +1,6 @@
 <template>
   <v-overlay v-model="show" class="align-center justify-center" persistent scroll-strategy="block">
-    <v-progress-circular indeterminate :size="100" :aria-label="$t('loading')" />
+    <v-progress-circular indeterminate :size="100" />
   </v-overlay>
 </template>
 
