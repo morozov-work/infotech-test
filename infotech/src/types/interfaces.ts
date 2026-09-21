@@ -18,6 +18,7 @@ export interface User {
   username?: string;
   full_name?: string;
   role?: Role;
+  subscriptions?: number[];
 }
 
 export interface LoginData {

@@ -18,6 +18,7 @@ export const useAuthStore = defineStore('auth', () => {
       const response = await api.login(data);
       accessToken.value = response.data?.token ?? null;
       user.value = response.data?.user ?? null;
+      if (accessToken.value) localStorage.setItem('accessToken', accessToken.value);
     } catch {
       error.value = true;
     } finally {
@@ -31,7 +32,23 @@ export const useAuthStore = defineStore('auth', () => {
     localStorage.removeItem('accessToken');
   };
 
-  const restoreToken = () => (accessToken.value = localStorage.getItem('accessToken'));
+  const restoreToken = async () => {
+    accessToken.value = localStorage.getItem('accessToken');
+    if (!accessToken.value) return;
+    try {
+      const response = await api.getUser();
+      user.value = response.data ?? null;
+    } catch {
+      logout();
+    }
+  };
+
+  const toggleSubscription = async (id: number) => {
+    const response = user.value?.subscriptions?.includes(id)
+      ? await api.unsubscribeAuthor(id)
+      : await api.subscribeAuthor(id);
+    user.value = response.data ?? null;
+  };
 
   return {
     accessToken,
@@ -40,6 +57,7 @@ export const useAuthStore = defineStore('auth', () => {
     loading,
     error,
     restoreToken,
+    toggleSubscription,
     login,
     logout,
   };
