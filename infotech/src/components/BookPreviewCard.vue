@@ -4,17 +4,9 @@
     variant="outlined"
     class="d-flex align-start h-100 pa-3"
   >
-    <v-img
-      :src="book.cover_url || fallbackCover"
-      :alt="book.title"
-      width="90"
-      height="135"
-      class="flex-grow-0 flex-shrink-0"
-    >
-      <template #error>
-        <v-img :src="fallbackCover" :alt="$t('book.noCover')" width="90" height="135" />
-      </template>
-    </v-img>
+    <div class="preview-cover flex-shrink-0">
+      <BookCover :src="book.cover_url" />
+    </div>
     <div class="book-info">
       <v-card-title class="text-wrap pt-0">{{ book.title }}</v-card-title>
       <v-card-subtitle>{{ book.year }}</v-card-subtitle>
@@ -26,9 +18,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { Book } from '@/types';
+import BookCover from '@/components/BookCover.vue';
 
 const props = defineProps<{ book: Book }>();
-const fallbackCover = `${import.meta.env.BASE_URL}cover.svg`;
 const authors = computed(() =>
   (props.book.authors ?? [])
     .map((author) => author.full_name)
@@ -38,6 +30,11 @@ const authors = computed(() =>
 </script>
 
 <style scoped>
+.preview-cover {
+  width: 90px;
+  height: 135px;
+}
+
 .book-info {
   min-width: 0;
   overflow-wrap: anywhere;
