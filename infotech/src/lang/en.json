@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "books": "Books",
+    "authors": "Authors",
+    "topAuthors": "Top 10 authors"
+  },
+  "lang": {
+    "ru": "RU",
+    "en": "EN"
+  },
+  "theme": {
+    "auto": "Auto",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "search": "Search",
+  "loading": "Loading",
+  "noData": "No data",
+  "books": {
+    "empty": "No books found",
+    "title": "Book catalog",
+    "author": "Author",
+    "year": "year"
+  },
+  "book": {},
+  "authors": {},
+  "author": {},
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign in",
+    "exit": "Sign out"
+  },
+  "notFound": {
+    "title": "404 — Not found",
+    "description": "This page does not exist.",
+    "toBooks": "Go to book catalog"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "books": "Книги",
+    "authors": "Авторы",
+    "topAuthors": "ТОП-10 авторов"
+  },
+  "lang": {
+    "ru": "РУ",
+    "en": "EN"
+  },
+  "theme": {
+    "auto": "Авто",
+    "light": "Светлая",
+    "dark": "Темная"
+  },
+  "auth": {
+    "login": "Вход",
+    "logout": "Выход"
+  },
+  "search": "Поиск",
+  "loading": "Загрузка",
+  "noData": "Нет данных",
+  "books": {
+    "empty": "Книги не найдены",
+    "title": "Каталог книг",
+    "author": "Автор",
+    "year": "год"
+  },
+  "book": {},
+  "authors": {},
+  "author": {},
+  "login": {
+    "username": "Логин",
+    "password": "Пароль",
+    "submit": "Войти",
+    "exit": "Выйти"
+  },
+  "notFound": {
+    "title": "404 — Не найдено",
+    "description": "Такой страницы не существует.",
+    "toBooks": "Перейти в каталог книг"
+  }
+}
