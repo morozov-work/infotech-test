@@ -1,4 +1,6 @@
 import { getRecords, saveRecord, deleteRecord } from '@/db/requests';
+import { createSession, verifyToken } from '@/db/auth';
+import { useAuthStore } from '@/stores/auth';
 import type {
   AuthorInput,
   Book,
@@ -44,12 +46,15 @@ export async function request<T>(
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const respond = (data: unknown) => ({ success: true, data }) as T;
-  if (path === '/auth/login') {
-    return respond({
-      token: 'mock-token',
-      expires_at: new Date(Date.now() + 86400000).toISOString(),
-      user: { id: 1, username: (body as LoginRequest).username, role: 'user' },
-    });
+  if (path === '/auth/login' && method === 'POST') {
+    return respond(await createSession(body as LoginRequest));
+  }
+
+  if (method !== 'GET') {
+    const session = await verifyToken(useAuthStore().accessToken);
+    if (!session) throw Object.assign(new Error('Необходима авторизация'), { status: 401 });
+    if (session.role !== 'user')
+      throw Object.assign(new Error('Недостаточно прав'), { status: 403 });
   }
 
   const [, resource, rawId] = path.split('/');

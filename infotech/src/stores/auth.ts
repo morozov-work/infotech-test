@@ -1,9 +1,46 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
+import type { LoginRequest, User } from '@/types';
+import { api } from '@api';
 
 export const useAuthStore = defineStore('auth', () => {
   const accessToken = ref<string | null>(null);
+  const user = ref<User | null>(null);
   const isAuthenticated = computed(() => Boolean(accessToken.value));
+  const loading = ref<boolean>(false);
+  const error = ref<boolean>(false);
 
-  return { accessToken, isAuthenticated };
+  const login = async (data: LoginRequest) => {
+    if (loading.value) return;
+    loading.value = true;
+    error.value = false;
+    try {
+      const response = await api.login(data);
+      accessToken.value = response.data?.token ?? null;
+      user.value = response.data?.user ?? null;
+    } catch {
+      error.value = true;
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  const logout = () => {
+    accessToken.value = null;
+    user.value = null;
+    localStorage.removeItem('accessToken');
+  };
+
+  const restoreToken = () => (accessToken.value = localStorage.getItem('accessToken'));
+
+  return {
+    accessToken,
+    user,
+    isAuthenticated,
+    loading,
+    error,
+    restoreToken,
+    login,
+    logout,
+  };
 });

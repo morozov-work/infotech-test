@@ -8,3 +8,8 @@ export enum Lang {
   EN = 'en',
   RU = 'ru',
 }
+
+export enum Role {
+  GUEST = 'guest',
+  USER = 'user',
+}

@@ -31,7 +31,10 @@ import LanguageSelect from '@/components/LanguageSelect.vue';
 import ThemeSelect from '@/components/ThemeSelect.vue';
 import LoginBtn from '@/components/LoginBtn.vue';
 import LoadingOverlay from '@components/LoadingOverlay.vue';
-import { useUiStore } from '@/stores';
+import { useAuthStore, useUiStore } from '@/stores';
 
 const { theme, loading } = storeToRefs(useUiStore());
+const { restoreToken } = useAuthStore();
+
+restoreToken();
 </script>

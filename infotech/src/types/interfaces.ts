@@ -1,18 +1,27 @@
-// Обязательность полей соответствует required в book.yaml.
+import { Role } from '@types';
+
 export interface LoginRequest {
   username: string;
   password: string;
 }
 
+export interface JwtPayload {
+  sub: number;
+  username: string;
+  role: Role;
+  iat: number;
+  exp: number;
+}
+
 export interface User {
   id?: number;
   username?: string;
-  role?: string;
+  full_name?: string;
+  role?: Role;
 }
 
 export interface LoginData {
   token?: string;
-  /** Дата и время в формате date-time. */
   expires_at?: string;
   user?: User;
 }
@@ -44,7 +53,6 @@ export interface BookShort {
   year?: number;
 }
 
-/** Тело PATCH /books/{id}. */
 export interface BookInput {
   title?: string;
   year?: number;
@@ -53,7 +61,6 @@ export interface BookInput {
   author_ids?: number[];
 }
 
-/** Поля multipart/form-data для создания и полного обновления книги. */
 export interface BookForm {
   title: string;
   year: number;
@@ -68,9 +75,7 @@ export interface AuthorInput {
 }
 
 export interface PaginationParams {
-  /** По умолчанию 1. */
   page?: number;
-  /** По умолчанию 20. */
   'per-page'?: number;
 }
 
@@ -88,7 +93,6 @@ export interface TopAuthorsParams {
   year: number;
 }
 
-/** Параметры пути /books/{id} и /authors/{id}. */
 export interface IdParams {
   id: number;
 }
@@ -129,10 +133,8 @@ export type BookListResponse = ApiResponse<ListData<Book>>;
 export type AuthorListResponse = ApiResponse<ListData<AuthorShort>>;
 export type TopAuthorsResponse = ApiResponse<TopAuthorsData>;
 
-/** Ответ DELETE со статусом 204 не содержит тела. */
 export type DeleteResponse = void;
 
-/** Схема Error из book.yaml. */
 export interface ApiError {
   success?: boolean;
   errors?: ErrorItem[];

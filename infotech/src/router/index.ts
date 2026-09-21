@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { useAuthStore } from '@/stores';
 import Books from '@/views/Books.vue';
 import BookCreate from '@/views/BookCreate.vue';
 import Book from '@/views/Book.vue';
@@ -50,7 +49,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login,
-      meta: { guestOnly: true },
     },
     {
       path: '/:pathMatch(.*)*',
@@ -58,18 +56,6 @@ const router = createRouter({
       component: NotFound,
     },
   ],
-});
-
-router.beforeEach((to) => {
-  const auth = useAuthStore();
-
-  if (to.meta.requiresAuth && !auth.isAuthenticated) {
-    return { name: 'login', query: { redirect: to.fullPath } };
-  }
-
-  if (to.meta.guestOnly && auth.isAuthenticated) {
-    return { name: 'books' };
-  }
 });
 
 export default router;

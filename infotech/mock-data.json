@@ -822,5 +822,21 @@
         }
       ]
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "user",
+      "full_name": "Пользователь",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "username": "guest",
+      "password": "guest",
+      "full_name": "Гость",
+      "role": "guest"
+    }
   ]
 }

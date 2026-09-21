@@ -1,16 +1,17 @@
 import { openMockDatabase } from './index';
-import type { Author, Book } from '@/types';
+import type { Author, Book, User } from '@/types';
 
-type Tables = { books: Book; authors: Author };
+type Tables = { books: Book; authors: Author; users: User };
 type Table = keyof Tables;
 
 async function transaction<T>(
   mode: IDBTransactionMode,
   run: (tx: IDBTransaction, done: (value: T) => void) => void,
+  tables: Table[] = ['books', 'authors'],
 ): Promise<T> {
   const db = await openMockDatabase();
   return new Promise((resolve, reject) => {
-    const tx = db.transaction(['books', 'authors'], mode);
+    const tx = db.transaction(tables, mode);
     let value: T;
     tx.oncomplete = () => {
       db.close();
@@ -52,13 +53,20 @@ function syncRelations(tx: IDBTransaction) {
 }
 
 export function getRecords<K extends Table>(table: K): Promise<Tables[K][]> {
-  return transaction('readonly', (tx, done) => {
-    const request = tx.objectStore(table).getAll();
-    request.onsuccess = () => done(request.result);
-  });
+  return transaction(
+    'readonly',
+    (tx, done) => {
+      const request = tx.objectStore(table).getAll();
+      request.onsuccess = () => done(request.result);
+    },
+    [table],
+  );
 }
 
-export function saveRecord<K extends Table>(table: K, record: Tables[K]): Promise<Tables[K]> {
+export function saveRecord<K extends 'books' | 'authors'>(
+  table: K,
+  record: Tables[K],
+): Promise<Tables[K]> {
   return transaction('readwrite', (tx, done) => {
     const request = tx.objectStore(table).put(record);
     request.onsuccess = () => {
@@ -68,7 +76,7 @@ export function saveRecord<K extends Table>(table: K, record: Tables[K]): Promis
   });
 }
 
-export function deleteRecord(table: Table, id: number): Promise<void> {
+export function deleteRecord(table: 'books' | 'authors', id: number): Promise<void> {
   return transaction('readwrite', (tx, done) => {
     const request = tx.objectStore(table).delete(id);
     request.onsuccess = () => {

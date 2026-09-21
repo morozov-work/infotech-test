@@ -14,8 +14,12 @@
     "dark": "Dark"
   },
   "auth": {
+    "label": "Sign in",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "error": "Unable to sign in. Check your username and password."
   },
   "authorLabel": "Author",
   "yearLabel": "Year",
@@ -45,6 +49,7 @@
     "booksCount": "Books"
   },
   "login": {
+    "error": "Unable to sign in. Check your username and password.",
     "username": "Username",
     "password": "Password",
     "submit": "Sign in",

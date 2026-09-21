@@ -11,15 +11,21 @@ import { useI18n } from 'vue-i18n';
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/stores';
 import { mdiLogin, mdiLogout } from '@mdi/js';
+import { useRouter } from 'vue-router';
 
 const { t } = useI18n();
-const { accessToken, isAuthenticated } = storeToRefs(useAuthStore());
+const { isAuthenticated } = storeToRefs(useAuthStore());
+const { logout } = useAuthStore();
+const router = useRouter();
 
 const icon = computed(() => (isAuthenticated.value ? mdiLogout : mdiLogin));
 const tooltip = computed(() => (isAuthenticated.value ? t('auth.logout') : t('auth.login')));
 
 const onClick = () => {
-  // oxlint-disable-next-line no-unused-expressions
-  isAuthenticated.value ? (accessToken.value = null) : (accessToken.value = 'login');
+  if (isAuthenticated.value) {
+    logout();
+  } else {
+    router.push('/login');
+  }
 };
 </script>

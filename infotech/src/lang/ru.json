@@ -14,8 +14,12 @@
     "dark": "Темная"
   },
   "auth": {
-    "login": "Вход",
-    "logout": "Выход"
+    "label": "Вход",
+    "username": "Логин",
+    "password": "Пароль",
+    "login": "Войти",
+    "logout": "Выйти",
+    "error": "Не удалось войти. Проверьте логин и пароль."
   },
   "authorLabel": "Автор",
   "yearLabel": "Год",
@@ -39,12 +43,6 @@
     "label": "ТОП-10 авторов",
     "place": "Место",
     "booksCount": "Книг"
-  },
-  "login": {
-    "username": "Логин",
-    "password": "Пароль",
-    "submit": "Войти",
-    "exit": "Выйти"
   },
   "notFound": {
     "title": "404 — Не найдено",
