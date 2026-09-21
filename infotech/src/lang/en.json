@@ -70,12 +70,19 @@
     "save": "Save",
     "cancel": "Cancel",
     "confirmDelete": "Delete this record? This cannot be undone.",
-    "error": "Unable to complete the action. Please try again."
+    "error": "Unable to complete the action. Please try again.",
+    "addBook": "Add book",
+    "editBook": "Edit book",
+    "removeBook": "Delete book",
+    "addAutor": "Add author",
+    "editAutor": "Edit author",
+    "removeAutor": "Delete author"
   },
   "form": {
     "title": "Title",
     "cover": "Cover",
     "authorName": "Author name",
-    "required": "Complete the required fields. Select authors and a cover for a new book."
+    "required": "Complete the required fields. Select authors and a cover for a new book.",
+    "authorRequired": "Enter the author name."
   }
 }
