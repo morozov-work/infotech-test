@@ -2,10 +2,13 @@
   <section>
     <v-row class="justify-center align-center">
       <span class="text-center">{{ $t('nav.topAuthors') }}</span>
-      <v-btn size="sm" rounded :disabled="year <= bottomYear" @click="decrementYear">-</v-btn>
+      <v-btn size="sm" rounded :disabled="loading || year <= bottomYear" @click="decrementYear"
+        >-</v-btn
+      >
       <span>{{ year }}</span>
-      <v-btn size="sm" rounded :disabled="year >= topYear" @click="incrementYear">+</v-btn>
-      <v-btn :disabled="loading" @click="getTopAuthors">{{ $t('search') }}</v-btn>
+      <v-btn size="sm" rounded :disabled="loading || year >= topYear" @click="incrementYear"
+        >+</v-btn
+      >
     </v-row>
     <v-row class="justify-center items-center">
       <v-col cols="12" md="6">
@@ -26,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue';
+import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useAuthorsStore, useUiStore } from '@/stores';
 import AuthorPreviewCard from '@/components/AuthorPreviewCard.vue';
@@ -51,6 +54,6 @@ const incrementYear = () => {
   year.value++;
 };
 
-getTopAuthors(year.value);
+watch(year, (value) => getTopAuthors(value), { immediate: true });
 onBeforeUnmount(clearTopAuthors);
 </script>
