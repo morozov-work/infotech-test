@@ -1,0 +1,826 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Книга 01",
+      "year": 2026,
+      "description": "Описание книги 01.",
+      "isbn": "9788566033076",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 1,
+          "full_name": "Автор 01"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Книга 02",
+      "year": 2010,
+      "description": "Описание книги 02.",
+      "isbn": "9781709743627",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        },
+        {
+          "id": 1,
+          "full_name": "Автор 01"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Книга 03",
+      "year": 2025,
+      "description": "Описание книги 03.",
+      "isbn": "9782560027833",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Книга 04",
+      "year": 2020,
+      "description": "Описание книги 04.",
+      "isbn": "9782622152862",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 4,
+          "full_name": "Автор 04"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Книга 05",
+      "year": 2012,
+      "description": "Описание книги 05.",
+      "isbn": "9789464202304",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        },
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Книга 06",
+      "year": 2022,
+      "description": "Описание книги 06.",
+      "isbn": "9789251854778",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 6,
+          "full_name": "Автор 06"
+        },
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        },
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Книга 07",
+      "year": 2022,
+      "description": "Описание книги 07.",
+      "isbn": "9788413179674",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        },
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        },
+        {
+          "id": 6,
+          "full_name": "Автор 06"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Книга 08",
+      "year": 1990,
+      "description": "Описание книги 08.",
+      "isbn": "9788484314073",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        },
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        },
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        },
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Книга 09",
+      "year": 2001,
+      "description": "Описание книги 09.",
+      "isbn": "9789751901026",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 1,
+          "full_name": "Автор 01"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Книга 10",
+      "year": 2020,
+      "description": "Описание книги 10.",
+      "isbn": "9788833470641",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        },
+        {
+          "id": 4,
+          "full_name": "Автор 04"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        },
+        {
+          "id": 6,
+          "full_name": "Автор 06"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Книга 11",
+      "year": 2018,
+      "description": "Описание книги 11.",
+      "isbn": "9787203060178",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        },
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        },
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Книга 12",
+      "year": 2003,
+      "description": "Описание книги 12.",
+      "isbn": "9784974627654",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 4,
+          "full_name": "Автор 04"
+        },
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Книга 13",
+      "year": 2018,
+      "description": "Описание книги 13.",
+      "isbn": "9786819266813",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        },
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Книга 14",
+      "year": 2024,
+      "description": "Описание книги 14.",
+      "isbn": "9785941697533",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 6,
+          "full_name": "Автор 06"
+        },
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        },
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Книга 15",
+      "year": 2024,
+      "description": "Описание книги 15.",
+      "isbn": "9788788180107",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Книга 16",
+      "year": 2012,
+      "description": "Описание книги 16.",
+      "isbn": "9781042789276",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        },
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Книга 17",
+      "year": 2025,
+      "description": "Описание книги 17.",
+      "isbn": "9784250204562",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 1,
+          "full_name": "Автор 01"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        },
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Книга 18",
+      "year": 2015,
+      "description": "Описание книги 18.",
+      "isbn": "9785997678043",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        },
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Книга 19",
+      "year": 2015,
+      "description": "Описание книги 19.",
+      "isbn": "9789469161392",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Книга 20",
+      "year": 2005,
+      "description": "Описание книги 20.",
+      "isbn": "9780237517991",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 4,
+          "full_name": "Автор 04"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Книга 21",
+      "year": 2026,
+      "description": "Описание книги 21.",
+      "isbn": "9789991823362",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 5,
+          "full_name": "Автор 05"
+        },
+        {
+          "id": 6,
+          "full_name": "Автор 06"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Книга 22",
+      "year": 1998,
+      "description": "Описание книги 22.",
+      "isbn": "9781263521921",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 6,
+          "full_name": "Автор 06"
+        },
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        },
+        {
+          "id": 2,
+          "full_name": "Автор 02"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Книга 23",
+      "year": 2007,
+      "description": "Описание книги 23.",
+      "isbn": "9782001026043",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        },
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        },
+        {
+          "id": 1,
+          "full_name": "Автор 01"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Книга 24",
+      "year": 1994,
+      "description": "Описание книги 24.",
+      "isbn": "9788768632152",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 8,
+          "full_name": "Автор 08"
+        },
+        {
+          "id": 3,
+          "full_name": "Автор 03"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Книга 25",
+      "year": 2010,
+      "description": "Описание книги 25.",
+      "isbn": "9786108644148",
+      "cover_url": "/images/cover.svg",
+      "authors": [
+        {
+          "id": 1,
+          "full_name": "Автор 01"
+        },
+        {
+          "id": 7,
+          "full_name": "Автор 07"
+        }
+      ]
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "full_name": "Автор 01",
+      "books": [
+        {
+          "id": 1,
+          "title": "Книга 01",
+          "year": 2026
+        },
+        {
+          "id": 2,
+          "title": "Книга 02",
+          "year": 2010
+        },
+        {
+          "id": 9,
+          "title": "Книга 09",
+          "year": 2001
+        },
+        {
+          "id": 17,
+          "title": "Книга 17",
+          "year": 2025
+        },
+        {
+          "id": 23,
+          "title": "Книга 23",
+          "year": 2007
+        },
+        {
+          "id": 25,
+          "title": "Книга 25",
+          "year": 2010
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "full_name": "Автор 02",
+      "books": [
+        {
+          "id": 2,
+          "title": "Книга 02",
+          "year": 2010
+        },
+        {
+          "id": 7,
+          "title": "Книга 07",
+          "year": 2022
+        },
+        {
+          "id": 8,
+          "title": "Книга 08",
+          "year": 1990
+        },
+        {
+          "id": 10,
+          "title": "Книга 10",
+          "year": 2020
+        },
+        {
+          "id": 11,
+          "title": "Книга 11",
+          "year": 2018
+        },
+        {
+          "id": 14,
+          "title": "Книга 14",
+          "year": 2024
+        },
+        {
+          "id": 16,
+          "title": "Книга 16",
+          "year": 2012
+        },
+        {
+          "id": 18,
+          "title": "Книга 18",
+          "year": 2015
+        },
+        {
+          "id": 22,
+          "title": "Книга 22",
+          "year": 1998
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "full_name": "Автор 03",
+      "books": [
+        {
+          "id": 3,
+          "title": "Книга 03",
+          "year": 2025
+        },
+        {
+          "id": 8,
+          "title": "Книга 08",
+          "year": 1990
+        },
+        {
+          "id": 11,
+          "title": "Книга 11",
+          "year": 2018
+        },
+        {
+          "id": 18,
+          "title": "Книга 18",
+          "year": 2015
+        },
+        {
+          "id": 19,
+          "title": "Книга 19",
+          "year": 2015
+        },
+        {
+          "id": 23,
+          "title": "Книга 23",
+          "year": 2007
+        },
+        {
+          "id": 24,
+          "title": "Книга 24",
+          "year": 1994
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "full_name": "Автор 04",
+      "books": [
+        {
+          "id": 4,
+          "title": "Книга 04",
+          "year": 2020
+        },
+        {
+          "id": 10,
+          "title": "Книга 10",
+          "year": 2020
+        },
+        {
+          "id": 12,
+          "title": "Книга 12",
+          "year": 2003
+        },
+        {
+          "id": 20,
+          "title": "Книга 20",
+          "year": 2005
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "full_name": "Автор 05",
+      "books": [
+        {
+          "id": 5,
+          "title": "Книга 05",
+          "year": 2012
+        },
+        {
+          "id": 6,
+          "title": "Книга 06",
+          "year": 2022
+        },
+        {
+          "id": 8,
+          "title": "Книга 08",
+          "year": 1990
+        },
+        {
+          "id": 12,
+          "title": "Книга 12",
+          "year": 2003
+        },
+        {
+          "id": 13,
+          "title": "Книга 13",
+          "year": 2018
+        },
+        {
+          "id": 14,
+          "title": "Книга 14",
+          "year": 2024
+        },
+        {
+          "id": 17,
+          "title": "Книга 17",
+          "year": 2025
+        },
+        {
+          "id": 21,
+          "title": "Книга 21",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "full_name": "Автор 06",
+      "books": [
+        {
+          "id": 6,
+          "title": "Книга 06",
+          "year": 2022
+        },
+        {
+          "id": 7,
+          "title": "Книга 07",
+          "year": 2022
+        },
+        {
+          "id": 10,
+          "title": "Книга 10",
+          "year": 2020
+        },
+        {
+          "id": 14,
+          "title": "Книга 14",
+          "year": 2024
+        },
+        {
+          "id": 21,
+          "title": "Книга 21",
+          "year": 2026
+        },
+        {
+          "id": 22,
+          "title": "Книга 22",
+          "year": 1998
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "full_name": "Автор 07",
+      "books": [
+        {
+          "id": 1,
+          "title": "Книга 01",
+          "year": 2026
+        },
+        {
+          "id": 7,
+          "title": "Книга 07",
+          "year": 2022
+        },
+        {
+          "id": 9,
+          "title": "Книга 09",
+          "year": 2001
+        },
+        {
+          "id": 10,
+          "title": "Книга 10",
+          "year": 2020
+        },
+        {
+          "id": 14,
+          "title": "Книга 14",
+          "year": 2024
+        },
+        {
+          "id": 15,
+          "title": "Книга 15",
+          "year": 2024
+        },
+        {
+          "id": 17,
+          "title": "Книга 17",
+          "year": 2025
+        },
+        {
+          "id": 21,
+          "title": "Книга 21",
+          "year": 2026
+        },
+        {
+          "id": 23,
+          "title": "Книга 23",
+          "year": 2007
+        },
+        {
+          "id": 25,
+          "title": "Книга 25",
+          "year": 2010
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "full_name": "Автор 08",
+      "books": [
+        {
+          "id": 5,
+          "title": "Книга 05",
+          "year": 2012
+        },
+        {
+          "id": 6,
+          "title": "Книга 06",
+          "year": 2022
+        },
+        {
+          "id": 8,
+          "title": "Книга 08",
+          "year": 1990
+        },
+        {
+          "id": 11,
+          "title": "Книга 11",
+          "year": 2018
+        },
+        {
+          "id": 13,
+          "title": "Книга 13",
+          "year": 2018
+        },
+        {
+          "id": 16,
+          "title": "Книга 16",
+          "year": 2012
+        },
+        {
+          "id": 22,
+          "title": "Книга 22",
+          "year": 1998
+        },
+        {
+          "id": 24,
+          "title": "Книга 24",
+          "year": 1994
+        }
+      ]
+    }
+  ]
+}

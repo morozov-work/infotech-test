@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600" role="img" aria-label="Обложка книги">
+  <rect width="400" height="600" fill="#eceff1"/>
+  <rect x="90" y="175" width="220" height="250" rx="8" fill="#cfd8dc" stroke="#607d8b" stroke-width="6"/>
+  <path d="M125 178v244M160 240h110M160 275h85" fill="none" stroke="#607d8b" stroke-width="6" stroke-linecap="round"/>
+</svg>
