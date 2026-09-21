@@ -1,5 +1,5 @@
 import { SignJWT, jwtVerify } from 'jose';
-import type { JwtPayload, LoginRequest, LoginData, Role } from '@/types';
+import type { JwtPayload, LoginRequest, LoginData, Role, User } from '@/types';
 import { getRecords } from './requests';
 
 // jose требует ключ в виде байтов
@@ -29,7 +29,7 @@ export async function createSession({ username, password }: LoginRequest): Promi
   return {
     token,
     expires_at: new Date(exp * 1000).toISOString(), // Date - миллисекунды, поэтому * 1000
-    user: { id: user.id, username: user.username, full_name: user.full_name, role: user.role }, // пароль наружу не отдаём
+    user: publicUser(user), // пароль наружу не отдаём
   };
 }
 
@@ -58,3 +58,11 @@ export async function verifyToken(token: string | null): Promise<JwtPayload | nu
     return null;
   }
 }
+
+export const publicUser = (user: User): User => ({
+  id: user.id,
+  username: user.username,
+  full_name: user.full_name,
+  role: user.role,
+  subscriptions: user.subscriptions ?? [],
+});

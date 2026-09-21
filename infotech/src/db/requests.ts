@@ -1,7 +1,7 @@
 import { openMockDatabase } from './index';
 import type { Author, Book, User } from '@/types';
 
-type Tables = { books: Book; authors: Author; users: User };
+type Tables = { books: Book; authors: Author; users: User & { password: string } };
 type Table = keyof Tables;
 
 async function transaction<T>(
@@ -77,11 +77,54 @@ export function saveRecord<K extends 'books' | 'authors'>(
 }
 
 export function deleteRecord(table: 'books' | 'authors', id: number): Promise<void> {
-  return transaction('readwrite', (tx, done) => {
-    const request = tx.objectStore(table).delete(id);
-    request.onsuccess = () => {
-      syncRelations(tx);
-      done();
-    };
-  });
+  return transaction(
+    'readwrite',
+    (tx, done) => {
+      const request = tx.objectStore(table).delete(id);
+      request.onsuccess = () => {
+        syncRelations(tx);
+        if (table === 'authors') {
+          const users = tx.objectStore('users');
+          const cursor = users.openCursor();
+          cursor.onsuccess = () => {
+            const user = cursor.result;
+            if (!user) return;
+            user.update({
+              ...user.value,
+              subscriptions: (user.value.subscriptions ?? []).filter(
+                (authorId: number) => authorId !== id,
+              ),
+            });
+            user.continue();
+          };
+        }
+        done();
+      };
+    },
+    ['books', 'authors', 'users'],
+  );
+}
+
+export function setSubscription(
+  userId: number,
+  authorId: number,
+  subscribed: boolean,
+): Promise<User> {
+  return transaction(
+    'readwrite',
+    (tx, done) => {
+      const users = tx.objectStore('users');
+      const request = users.get(userId);
+      request.onsuccess = () => {
+        const user = request.result;
+        const subscriptions = new Set<number>(user.subscriptions ?? []);
+        if (subscribed) subscriptions.add(authorId);
+        else subscriptions.delete(authorId);
+        user.subscriptions = [...subscriptions];
+        users.put(user);
+        done(user);
+      };
+    },
+    ['users'],
+  );
 }

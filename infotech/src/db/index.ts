@@ -2,10 +2,13 @@ import mockData from '../../mock-data.json';
 import type { Author, Book, User } from '@/types';
 
 const DATABASE_NAME = 'infotech-mock';
-const DATABASE_VERSION = 1;
+const DATABASE_VERSION = 3;
 
 // Начальные данные из JSON. Каждая таблица заполняется отдельно.
-const seed: { books: Book[]; authors: Author[]; users: User[] } = mockData;
+const seed: { books: Book[]; authors: Author[]; users: User[] } = {
+  ...mockData,
+  users: mockData.users as User[],
+};
 
 // Превращает IndexedDB-запрос в промис, чтобы писать через await.
 function toPromise<T>(request: IDBRequest<T>): Promise<T> {
@@ -34,6 +37,16 @@ export function openMockDatabase(): Promise<IDBDatabase> {
       if (!db.objectStoreNames.contains('users')) {
         db.createObjectStore('users', { keyPath: 'id', autoIncrement: true });
       }
+      const users = request.transaction!.objectStore('users');
+      const cursor = users.openCursor();
+      cursor.onsuccess = () => {
+        const record = cursor.result;
+        if (!record) return;
+        if (!Array.isArray(record.value.subscriptions)) {
+          record.update({ ...record.value, subscriptions: [] });
+        }
+        record.continue();
+      };
     };
 
     request.onerror = () => reject(request.error);
