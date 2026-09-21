@@ -111,7 +111,8 @@ export async function request<T>(
       return undefined as T;
     }
     const { author_ids, ...fields } = body as BookInput;
-    const record: Book = method === 'PATCH' ? { ...book } : { id, description: '', isbn: '' };
+    const record: Book = method === 'PATCH' ? { ...book } : { description: '', isbn: '' };
+    if (id !== undefined) record.id = id;
     // File передаётся отдельно, в запись книги попадают только поля модели.
     for (const key of ['title', 'year', 'description', 'isbn'] as const) {
       if (fields[key] !== undefined) Object.assign(record, { [key]: fields[key] });
@@ -146,7 +147,6 @@ export async function request<T>(
     return respond(
       await saveRecord('authors', {
         ...author,
-        id,
         full_name: (body as AuthorInput).full_name,
         books: author?.books ?? [],
       }),
