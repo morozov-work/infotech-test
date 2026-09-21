@@ -1,5 +1,5 @@
-import { getRecords, saveRecord, deleteRecord } from '@/db/requests';
-import { createSession, verifyToken } from '@/db/auth';
+import { getRecords, saveRecord, deleteRecord, setSubscription } from '@/db/requests';
+import { createSession, verifyToken, publicUser } from '@/db/auth';
 import { useAuthStore } from '@/stores/auth';
 import type {
   AuthorInput,
@@ -17,14 +17,20 @@ interface RequestOptions {
   params?: BookListParams;
 }
 
-function paginate<T>(items: T[], { page = 1, 'per-page': per_page = 20 }: PaginationParams) {
+function paginate<T>(items: T[], params: PaginationParams) {
+  const per_page = 10;
+  const total_pages = Math.ceil(items.length / per_page);
+  const page = Math.min(
+    Math.max(1, Math.trunc(Number(params.page) || 1)),
+    Math.max(1, total_pages),
+  );
   return {
     items: items.slice((page - 1) * per_page, page * per_page),
     pagination: {
       total: items.length,
       page,
       per_page,
-      total_pages: Math.ceil(items.length / per_page),
+      total_pages,
     },
   };
 }
@@ -48,6 +54,26 @@ export async function request<T>(
   const respond = (data: unknown) => ({ success: true, data }) as T;
   if (path === '/auth/login' && method === 'POST') {
     return respond(await createSession(body as LoginRequest));
+  }
+
+  const subscription = path.match(/^\/authors\/(\d+)\/subscription$/);
+  if (path === '/auth/user' || subscription) {
+    if (
+      (subscription && method !== 'POST' && method !== 'DELETE') ||
+      (!subscription && method !== 'GET')
+    ) {
+      throw Object.assign(new Error('Метод не поддерживается'), { status: 405 });
+    }
+    const payload = await verifyToken(useAuthStore().accessToken);
+    if (!payload) throw Object.assign(new Error('Необходима авторизация'), { status: 401 });
+    const user = (await getRecords('users')).find((item) => item.id === payload.sub);
+    if (!user) throw Object.assign(new Error('Пользователь не найден'), { status: 404 });
+    if (!subscription) return respond(publicUser(user));
+    const authorId = Number(subscription[1]);
+    if (!(await getRecords('authors')).some((author) => author.id === authorId)) {
+      throw Object.assign(new Error('Автор не найден'), { status: 404 });
+    }
+    return respond(publicUser(await setSubscription(payload.sub, authorId, method !== 'DELETE')));
   }
 
   if (method !== 'GET') {

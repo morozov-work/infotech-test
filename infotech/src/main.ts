@@ -36,5 +36,7 @@ initializeMockDatabase()
   .catch((error: unknown) => {
     console.error('Не удалось запустить моковое API:', error);
     const root = document.querySelector('#app');
-    if (root) root.textContent = 'Не удалось загрузить данные. Обновите страницу.';
+    if (root)
+      root.textContent =
+        'Не удалось загрузить данные. Попробуйте удалить IndexedDB и обновить страницу.';
   });

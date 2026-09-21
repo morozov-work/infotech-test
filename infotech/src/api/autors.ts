@@ -5,6 +5,8 @@ import type {
   AuthorResponse,
   AuthorInput,
   DeleteResponse,
+  ApiResponse,
+  User,
 } from '@/types';
 
 export const getAutors = (params: AuthorListParams = {}) => {
@@ -25,4 +27,12 @@ export const updateAutor = (id: number, body: AuthorInput) => {
 
 export const deleteAutor = (id: number) => {
   return request<DeleteResponse>(`/authors/${id}`, { method: 'DELETE' });
+};
+
+export const subscribeAuthor = (id: number) => {
+  return request<ApiResponse<User>>(`/authors/${id}/subscription`, { method: 'POST' });
+};
+
+export const unsubscribeAuthor = (id: number) => {
+  return request<ApiResponse<User>>(`/authors/${id}/subscription`, { method: 'DELETE' });
 };
