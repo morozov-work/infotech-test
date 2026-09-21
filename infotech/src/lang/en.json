@@ -17,18 +17,27 @@
     "login": "Login",
     "logout": "Logout"
   },
+  "authorLabel": "Author",
+  "yearLabel": "Year",
   "search": "Search",
-  "loading": "Loading",
   "noData": "No data",
   "books": {
-    "empty": "No books found",
     "title": "Book catalog",
-    "author": "Author",
-    "year": "year"
+    "empty": "No books found"
   },
-  "book": {},
-  "authors": {},
-  "author": {},
+  "book": {
+    "cover": "Book cover",
+    "description": "description",
+    "empty": "This book is not in the catalog"
+  },
+  "authors": {
+    "title": "Authors",
+    "empty": "No authors found"
+  },
+  "author": {
+    "books": "Books by this author",
+    "empty": "This author is not in the catalog"
+  },
   "login": {
     "username": "Username",
     "password": "Password",

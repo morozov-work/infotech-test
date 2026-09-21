@@ -17,18 +17,27 @@
     "login": "Вход",
     "logout": "Выход"
   },
+  "authorLabel": "Автор",
+  "yearLabel": "Год",
   "search": "Поиск",
-  "loading": "Загрузка",
   "noData": "Нет данных",
   "books": {
-    "empty": "Книги не найдены",
     "title": "Каталог книг",
-    "author": "Автор",
-    "year": "год"
+    "empty": "Книги не найдены"
   },
-  "book": {},
-  "authors": {},
-  "author": {},
+  "book": {
+    "cover": "Обложка книги",
+    "description": "Описание",
+    "empty": "Такой книги нет в каталоге"
+  },
+  "authors": {
+    "title": "Авторы",
+    "empty": "Авторы не найдены"
+  },
+  "author": {
+    "books": "Книги автора",
+    "empty": "Такого автора нет в каталоге"
+  },
   "login": {
     "username": "Логин",
     "password": "Пароль",
