@@ -5,6 +5,7 @@
     class="h-100 pa-3"
   >
     <v-card-title class="text-wrap">{{ author.full_name }}</v-card-title>
+    <v-card-text v-if="$slots.default"><slot /></v-card-text>
   </v-card>
 </template>
 

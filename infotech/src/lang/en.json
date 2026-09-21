@@ -22,21 +22,27 @@
   "search": "Search",
   "noData": "No data",
   "books": {
-    "title": "Book catalog",
     "empty": "No books found"
   },
   "book": {
-    "cover": "Book cover",
     "description": "description",
     "empty": "This book is not in the catalog"
   },
+  "topAuthors": {
+    "place": "Rank",
+    "booksCount": "Books"
+  },
   "authors": {
-    "title": "Authors",
     "empty": "No authors found"
   },
   "author": {
     "books": "Books by this author",
     "empty": "This author is not in the catalog"
+  },
+  "report": {
+    "label": "Top 10 Authors of",
+    "place": "Rank",
+    "booksCount": "Books"
   },
   "login": {
     "username": "Username",

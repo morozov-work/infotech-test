@@ -1,10 +1,5 @@
 <template>
-  <img
-    class="book-cover"
-    :src="failed || !src ? fallbackCover : src"
-    :alt="$t('book.cover')"
-    @error="failed = true"
-  />
+  <img class="book-cover" :src="failed || !src ? fallbackCover : src" @error="failed = true" />
 </template>
 
 <script setup lang="ts">

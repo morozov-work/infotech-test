@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h1>{{ $t('authors.title') }}</h1>
     <v-row v-if="items.length" class="justify-center">
       <v-col v-for="author in items" :key="author.id" cols="12" md="6">
         <AuthorPreviewCard :author="author" />

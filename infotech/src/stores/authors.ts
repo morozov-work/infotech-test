@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { Author, AuthorShort, ListData, AuthorListParams } from '@types';
+import type { Author, AuthorShort, ListData, AuthorListParams, TopAuthorsData } from '@types';
 import { api } from '@api';
 import { useUiStore } from './ui';
 
@@ -39,5 +39,31 @@ export const useAuthorsStore = defineStore('authors', () => {
     authors.value = null;
   };
 
-  return { author, getAuthor, clearAuthor, authors, getAuthors, clearAuthors };
+  const topAuthors = ref<TopAuthorsData | null>(null);
+
+  const getTopAuthors = async (year: number) => {
+    ui.loading = true;
+    try {
+      const response = await api.getTopAuthors({ year });
+      topAuthors.value = response.success ? (response.data ?? null) : null;
+    } finally {
+      ui.loading = false;
+    }
+  };
+
+  const clearTopAuthors = () => {
+    topAuthors.value = null;
+  };
+
+  return {
+    author,
+    getAuthor,
+    clearAuthor,
+    authors,
+    getAuthors,
+    clearAuthors,
+    topAuthors,
+    getTopAuthors,
+    clearTopAuthors,
+  };
 });
